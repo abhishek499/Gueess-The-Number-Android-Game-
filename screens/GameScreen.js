@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, ScrollView, Alert } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Alert,
+  Dimensions,
+} from "react-native";
 import React, { useState, useRef, useEffect } from "react";
 import NumberContainer from "../components/NumberContainer";
 import Card from "../components/Card";
@@ -98,11 +105,14 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: 20,
+    marginTop: Dimensions.get("window").height > 600 ? 20 : 10,
     width: 300,
     maxWidth: "80%",
   },
-  listContainer: { flex: 1, width: "90%" },
+  listContainer: {
+    flex: 1,
+    width: Dimensions.get("window").width > 350 ? "90%" : "60%",
+  },
   list: {
     flexGrow: 1,
     alignItems: "center",
